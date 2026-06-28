@@ -21,7 +21,7 @@ The site uses a full‑screen background image, glass‑morphism effects, and a 
 
 ##  Live Demo
 
- **View the live site**:  https://bucolic-pie-423859.netlify.app/
+ **View the live site**:  https://beamg.netlify.app/
 
 
 ---
