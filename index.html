@@ -174,17 +174,42 @@
       margin-right: 12px;
     }
 
-    /* home */
+    /* ===== HOME PAGE - IMAGE TOP, TEXT BELOW ===== */
     .hero {
       display: flex;
-      flex-wrap: wrap;
-      gap: 3rem;
+      flex-direction: column;
+      gap: 2rem;
       align-items: center;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(4px);
+      border-radius: 20px;
+      padding: 1rem;
+      display: flex;
       justify-content: center;
+      align-items: center;
+      box-shadow: 0 12px 30px -8px rgba(0,0,0,0.12);
+      border: 1px solid rgba(0,0,0,0.15);
+      overflow: hidden;
+      min-height: 300px;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      max-height: 500px;
     }
 
     .hero-content {
-      flex: 1 1 400px;
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
     }
 
     .hero-content h2 {
@@ -198,7 +223,9 @@
     .hero-content p {
       font-size: 1.2rem;
       margin: 1.8rem 0 2.2rem;
-      max-width: 550px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .btn {
@@ -224,37 +251,16 @@
       color: #fff !important;
     }
 
-    .hero-image {
-      flex: 1 1 300px;
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(4px);
-      border-radius: 20px;
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 300px;
-      box-shadow: 0 12px 30px -8px rgba(0,0,0,0.12);
-      border: 1px solid rgba(0,0,0,0.15);
-      overflow: hidden;
-    }
-    
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-      max-height: 400px;
-    }
-
     .stats {
       display: flex;
       flex-wrap: wrap;
       gap: 2.5rem;
-      margin-top: 4rem;
+      margin-top: 3rem;
       justify-content: space-around;
       border-top: 1px solid rgba(0,0,0,0.15);
       padding-top: 3rem;
+      width: 100%;
+      max-width: 800px;
     }
     .stat-item {
       text-align: center;
@@ -604,22 +610,22 @@
   </div>
 </nav>
 
-<!-- HOME -->
+<!-- HOME - Image on Top, Text Below -->
 <section id="home" class="active">
   <div class="hero">
+    <div class="hero-image">
+      <img src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/474687252_513702221756003_8669152100068161233_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1350&ctp=s1080x1350&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFkYQ3zr5aQO3kbqi9LLY4-EMTW5Hr208cQxNbkevbTx1p6JRCl6UEylUviaotcnCqVLu1FZe8UtOrAjjh92tNq&_nc_ohc=hc7Qd1ig1qEQ7kNvwG_Ad0K&_nc_oc=AdqthacD9HSJLtt8gDI5ZR8d2wmS8U8XbMduy9aq5lodQQjJuTx4wD3YyEScrDdVqT0&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=RZX0aiYN3XidRJD1o1Cifg&_nc_ss=7b2a8&oh=00_Af8RkALMry_767Jn4HQO1d_P-wFjyfzmB6LKkZYXGnfg6Q&oe=6A46FBE0" alt="The Beam Grill & Lounge">
+    </div>
     <div class="hero-content">
       <h2>Where <span>flame</span> meets <span>rhythm</span></h2>
-      <p>Welcome to The Beam Grill & Lounge where we offer Deliciously Crafted Food, Drinks and Gamesin a Serene Ambience.</p>
+      <p>Welcome to The Beam Grill & Lounge where we offer Deliciously Crafted Food, Drinks and Games in a Serene Ambience.</p>
       <a href="#" class="btn" data-page="menu">Explore Menu <i class="fas fa-arrow-right"></i></a>
     </div>
-    <div class="hero-image">
-      <img src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/474450894_511617901964435_6716671363660708533_n.jpg?stp=dst-jpg_tt6&cstp=mx500x500&ctp=s500x500&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF0slUQolkq_JrENL2hJUigCuehJuK_TLwK56Em4r9MvEVg9mA6uilcQRbDLQsCdcpzmZ04VMgCDFQ7lBdKHorh&_nc_ohc=OlkzbbCSeKAQ7kNvwEuYUPX&_nc_oc=AdrzzobNrT4T-_tcVk4e9RcVVYmFQyn4l4ByXG7L8Vy4gRsH2v8jINviOzFeN6uMc5g&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=xv8_UUgP18WpjLN-dF8dLg&_nc_ss=7b2a8&oh=00_Af976BHVNUQIBAyaA0QWrCOf2TQ5-Kb6BJMe4ZdPh3ZvEg&oe=6A46E9BF" alt="The Beam Grill & Lounge">
+    <div class="stats">
+      <div class="stat-item"><h3>12+</h3><p>Signature cocktails</p></div>
+      <div class="stat-item"><h3>∞</h3><p>Good vibes</p></div>
+      <div class="stat-item"><h3>4.9★</h3><p>Guest rating</p></div>
     </div>
-  </div>
-  <div class="stats">
-    <div class="stat-item"><h3>12+</h3><p>Signature cocktails</p></div>
-    <div class="stat-item"><h3>∞</h3><p>Good vibes</p></div>
-    <div class="stat-item"><h3>4.9★</h3><p>Guest rating</p></div>
   </div>
 </section>
 
