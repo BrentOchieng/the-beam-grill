@@ -3,1010 +3,1201 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Beam Grill & Lounge</title>
-  <!-- Font Awesome Icons -->
+  <title>The Beam Grill & Lounge — Nakuru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <style>
-    * {
+    :root {
+      --ink:    #0a0a0a;
+      --bone:   #f2ede6;
+      --ember:  #c94f1e;
+      --smoke:  #2e2b28;
+      --ash:    #8a7f76;
+      --cream:  #faf7f2;
+      --rule:   #ddd6cc;
+    }
+
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      color: #000000;
-      font-weight: 700;
+      background: var(--bone);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
       line-height: 1.6;
-      scroll-behavior: smooth;
-      position: relative;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* BACKGROUND IMAGE – fixed full screen */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/472448489_499528726506686_4352764677362153517_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x720&ctp=s1080x720&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF9l0o4B6XVhFnSnYs70u3hHWBM2s6EVYkdYEzazoRVif0iAataeZmQMe6548yUFXHQH--O9Tyft01QymosY_gk&_nc_ohc=fYvcYNg81ecQ7kNvwEAZUPF&_nc_oc=AdqCBl4FafEkI8ACMfKr2gNTk0fvtmeckh8IA7zNXXjY68sp_-3DqcEMKyG9HP7s_5I&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=kcRdgay_cdVwuKgB0qdnEQ&_nc_ss=7b2a8&oh=00_Af-SrBWQHd61NyHu1xm36678I6mUlPiz1iwixu1lKWim8g&oe=6A46BAE4') center center / cover no-repeat fixed;
-      z-index: -2;
-      opacity: 1;
-    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bone); }
+    ::-webkit-scrollbar-thumb { background: var(--ash); border-radius: 3px; }
 
-    /* all text bold + black */
-    p, h1, h2, h3, h4, h5, h6, span, div, li, a, button, input, textarea, .stat-item p, .service-card p, .menu-item .name, .menu-item .price, .contact-info p, .footer p, .brand-text, .nav-links a, .btn, .section-title, .hero-content p, .hero-content h2 {
-      font-weight: 700 !important;
-      color: #000000 !important;
-    }
-
-    .section-title i, .service-card i, .contact-info i, .social a i, .stat-item h3, .menu-category h3 {
-      color: #000000 !important;
-    }
-
-    .logo-container .brand-text, .logo-container .brand-text span {
-      color: #000000 !important;
-    }
-
-    /* custom scroll */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #e6e0d8; }
-    ::-webkit-scrollbar-thumb { background: #888; border-radius: 6px; }
-
-    /* logo & header */
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .logo-img {
-      height: 60px;
-      width: auto;
-      filter: drop-shadow(0 0 4px rgba(0,0,0,0.08));
-      background: transparent;
-    }
-
-    .brand-text {
-      font-size: 1.8rem;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      border-left: 2px solid #000;
-      padding-left: 14px;
-    }
-    .brand-text span {
-      font-weight: 700;
-    }
-
-    /* navigation */
+    /* ── NAV ── */
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 5%;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid rgba(0,0,0,0.15);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 200;
+      background: var(--cream);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-flame {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-flame svg {
+      width: 22px;
+      height: 28px;
+      fill: var(--ember);
+    }
+
+    .logo-wordmark {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--ink);
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .logo-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 4px;
+      color: var(--ash);
+      text-transform: uppercase;
+      display: block;
+      margin-top: 3px;
     }
 
     .nav-links {
       display: flex;
-      gap: 2.8rem;
+      align-items: center;
+      gap: 3rem;
       list-style: none;
     }
 
     .nav-links a {
-      text-decoration: none;
-      font-size: 1rem;
-      letter-spacing: 1.5px;
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
-      transition: 0.3s;
+      text-decoration: none;
+      color: var(--ash);
+      font-weight: 500;
       position: relative;
-      padding: 4px 0;
+      padding-bottom: 3px;
+      transition: color 0.2s;
     }
 
     .nav-links a::after {
       content: '';
       position: absolute;
-      bottom: -2px;
+      bottom: 0;
       left: 0;
       width: 0;
-      height: 2px;
-      background: #000;
-      transition: 0.3s;
+      height: 1.5px;
+      background: var(--ember);
+      transition: width 0.3s ease;
     }
 
-    .nav-links a:hover::after { width: 100%; }
-    .nav-links a.active::after { width: 100%; }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--ink);
+    }
 
-    /* hamburger */
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-reserve {
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--cream);
+      background: var(--ink);
+      padding: 0.5rem 1.4rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .nav-reserve:hover { background: var(--ember); }
+
     .hamburger {
       display: none;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
       cursor: pointer;
+      padding: 4px;
     }
+
     .hamburger span {
-      width: 30px;
-      height: 2px;
-      background: #000;
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--ink);
       transition: 0.3s;
     }
 
-    /* sections */
-    section {
-      padding: 5rem 6% 4rem;
-      max-width: 1400px;
-      margin: 0 auto;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
+    /* ── SECTIONS (page system) ── */
+    .page {
       display: none;
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(2px);
-      border-radius: 20px 20px 0 0;
-      margin-bottom: 1rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      animation: fadeIn 0.4s ease;
     }
 
-    section.active {
-      display: block;
-      animation: fadeUp 0.6s ease forwards;
+    .page.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .section-title {
-      font-size: 3rem;
-      letter-spacing: 6px;
+    /* ── EYEBROW LABEL ── */
+    .eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      margin-bottom: 2.5rem;
-      border-bottom: 1px solid rgba(0,0,0,0.2);
-      padding-bottom: 0.8rem;
-      display: inline-block;
-    }
-    .section-title i {
-      margin-right: 12px;
+      color: var(--ember);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 1rem;
     }
 
-    /* ===== HOME PAGE - HOVERING IMAGES ===== */
+    /* ── HOME PAGE ── */
     .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 68px);
+    }
+
+    .hero-left {
+      padding: 6rem 5% 4rem 6%;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
-      align-items: center;
-      width: 100%;
-      position: relative;
+      justify-content: center;
+      border-right: 1px solid var(--rule);
     }
 
-    .hero-image-wrapper {
-      width: 100%;
-      max-width: 800px;
-      position: relative;
-      overflow: hidden;
-      border-radius: 16px;
-      min-height: 400px;
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
     }
 
-    .hero-image-wrapper img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(1);
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      border-radius: 12px;
-      transition: opacity 1s ease-in-out, transform 1.2s ease-in-out;
-      opacity: 0;
+    .hero-headline em {
+      font-style: italic;
+      color: var(--ember);
     }
 
-    .hero-image-wrapper img.active {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-    .hero-image-wrapper img.fade-out {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(1.05);
-    }
-
-    .image-indicators {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 12px;
-      z-index: 5;
-      background: rgba(0,0,0,0.4);
-      padding: 8px 16px;
-      border-radius: 30px;
-      backdrop-filter: blur(4px);
-    }
-
-    .image-indicators .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.5);
-      cursor: pointer;
-      transition: 0.3s;
-      border: 2px solid transparent;
-    }
-
-    .image-indicators .dot.active {
-      background: #ffffff;
-      border-color: #000;
-      transform: scale(1.2);
-    }
-
-    .image-indicators .dot:hover {
-      background: #ffffff;
-      transform: scale(1.1);
-    }
-
-    .hero-content {
-      width: 100%;
-      max-width: 800px;
-      text-align: center;
-    }
-
-    .hero-content h2 {
-      font-size: 3.8rem;
-      letter-spacing: 4px;
-      line-height: 1.2;
-    }
-    .hero-content h2 span {
-      font-weight: 700;
-    }
-    .hero-content p {
-      font-size: 1.2rem;
-      margin: 1.8rem 0 2.2rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .btn {
-      background: rgba(255,255,255,0.8);
-      border: 1.5px solid #000;
-      padding: 0.9rem 2.5rem;
+    .hero-body {
       font-size: 1rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: 0.4s;
-      border-radius: 2px;
+      color: var(--ash);
+      max-width: 380px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
       display: inline-block;
       text-decoration: none;
-      backdrop-filter: blur(2px);
-    }
-    .btn:hover {
-      background: #000;
-      color: #fff !important;
-      box-shadow: 0 0 20px rgba(0,0,0,0.25);
-    }
-    .btn:hover i {
-      color: #fff !important;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: 0.72rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      transition: background 0.2s;
+      font-family: 'Inter', sans-serif;
+      border: none;
+      cursor: pointer;
     }
 
-    .stats {
+    .btn-primary:hover { background: var(--ember); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: color 0.2s;
+    }
+
+    .btn-ghost:hover { color: var(--ember); }
+    .btn-ghost .arrow { transition: transform 0.2s; }
+    .btn-ghost:hover .arrow { transform: translateX(4px); }
+
+    .hero-stats {
       display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      margin-top: 3rem;
-      justify-content: space-around;
-      border-top: 1px solid rgba(0,0,0,0.15);
-      padding-top: 3rem;
-      width: 100%;
-      max-width: 800px;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--rule);
     }
-    .stat-item {
-      text-align: center;
-    }
-    .stat-item h3 {
-      font-size: 2.6rem;
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
       font-weight: 700;
-    }
-    .stat-item p {
-      letter-spacing: 1px;
-    }
-
-    /* ===== SERVICES SECTION WITH IMAGES ===== */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.5rem;
-      margin-top: 2rem;
+      color: var(--ink);
+      display: block;
     }
 
-    .service-card {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(4px);
-      padding: 0;
-      border-radius: 16px;
-      border: 1px solid rgba(0,0,0,0.1);
-      transition: 0.3s;
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+
+    .hero-right {
+      position: relative;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      background: var(--smoke);
     }
 
-    .service-card:hover {
-      transform: translateY(-10px);
-      border-color: #000;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-      background: rgba(255,255,255,0.8);
+    .hero-slideshow {
+      position: absolute;
+      inset: 0;
     }
 
-    .service-card .service-image {
-      width: 100%;
-      height: 200px;
-      overflow: hidden;
-    }
-
-    .service-card .service-image img {
+    .hero-slideshow img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      opacity: 0;
+      transition: opacity 1.2s ease;
     }
 
-    .service-card:hover .service-image img {
-      transform: scale(1.05);
+    .hero-slideshow img.active { opacity: 1; }
+
+    .slide-dots {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 5;
     }
 
-    .service-card .service-content {
-      padding: 1.5rem;
-      text-align: center;
+    .slide-dot {
+      width: 2px;
+      height: 18px;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: background 0.3s, height 0.3s;
+      border: none;
     }
 
-    .service-card .service-content i {
-      font-size: 2.5rem;
-      margin-bottom: 0.8rem;
+    .slide-dot.active {
+      background: var(--ember);
+      height: 30px;
+    }
+
+    /* ── SERVICES PAGE ── */
+    .page-header {
+      padding: 5rem 6% 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .theater-panels { }
+
+    .theater-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 300px;
+      border-bottom: 1px solid var(--rule);
+      overflow: hidden;
+    }
+
+    .theater-panel.flip { direction: rtl; }
+    .theater-panel.flip > * { direction: ltr; }
+
+    .panel-img {
+      overflow: hidden;
+      position: relative;
+      background: var(--smoke);
+    }
+
+    .panel-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      transition: transform 0.6s ease;
+      background: var(--smoke);
+    }
+
+    .theater-panel:hover .panel-img img {
+      transform: scale(1.03);
+    }
+
+    .panel-body {
+      padding: 4rem 6%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--cream);
+    }
+
+    .theater-panel:nth-child(even) .panel-body {
+      background: var(--bone);
+    }
+
+    .panel-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--rule);
+      line-height: 1;
+      margin-bottom: 1.5rem;
       display: block;
     }
 
-    .service-card .service-content h3 {
-      letter-spacing: 2px;
-      font-size: 1.3rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .service-card .service-content p {
+    .panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
       font-weight: 700;
-      font-size: 0.95rem;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      line-height: 1.2;
     }
 
-    /* ===== MENU SECTION WITH CLICKABLE IMAGES ===== */
+    .panel-desc {
+      font-size: 0.95rem;
+      color: var(--ash);
+      line-height: 1.8;
+      max-width: 360px;
+    }
+
+    .panel-tag {
+      display: inline-block;
+      margin-top: 2rem;
+      font-size: 0.68rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ember);
+      font-weight: 600;
+      border-bottom: 1px solid var(--ember);
+      padding-bottom: 2px;
+    }
+
+    /* ── MENU PAGE ── */
+    .menu-intro {
+      padding: 5rem 6% 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
     }
 
-    .menu-image-card {
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(4px);
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.1);
-      transition: 0.3s;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      cursor: pointer;
+    .menu-card {
       position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      background: var(--smoke);
+      aspect-ratio: 3/4;
     }
 
-    .menu-image-card:hover {
-      transform: translateY(-8px);
-      border-color: #000;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-      background: rgba(255,255,255,0.8);
-    }
+    .menu-card:nth-child(2n) { border-right: none; }
 
-    .menu-image-card img {
+    .menu-card img {
       width: 100%;
-      height: 400px;
+      height: 100%;
       object-fit: contain;
       display: block;
-      background: rgba(255,255,255,0.3);
+      background: #1a1816;
+      transition: transform 0.5s ease;
       padding: 0.5rem;
     }
 
-    .menu-image-card .click-hint {
+    .menu-card:hover img { transform: scale(1.03); }
+
+    .menu-card-label {
       position: absolute;
-      bottom: 10px;
-      right: 15px;
-      background: rgba(0,0,0,0.6);
-      color: #fff !important;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.7rem;
-      letter-spacing: 0.5px;
-      backdrop-filter: blur(4px);
-      font-weight: 400 !important;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 1.5rem 1.2rem;
+      background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
     }
 
-    /* ===== LIGHTBOX / MODAL ===== */
+    .menu-card-pg {
+      font-size: 0.68rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .menu-card-hint {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ember);
+    }
+
+    /* ── LIGHTBOX ── */
     .lightbox {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
+      inset: 0;
+      background: rgba(10,10,10,0.96);
       z-index: 1000;
-      justify-content: center;
       align-items: center;
-      padding: 2rem;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
+      justify-content: center;
     }
 
-    .lightbox.active {
-      display: flex;
-    }
+    .lightbox.open { display: flex; }
 
     .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
+      max-width: min(90vw, 800px);
+      max-height: 90vh;
       object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-      border: 2px solid rgba(255,255,255,0.1);
     }
 
-    .lightbox .close-btn {
+    .lb-close {
       position: absolute;
-      top: 25px;
-      right: 35px;
-      color: #fff;
-      font-size: 3rem;
-      font-weight: 300;
-      cursor: pointer;
-      transition: 0.3s;
+      top: 2rem;
+      right: 2rem;
       background: none;
       border: none;
-      z-index: 1001;
+      color: rgba(255,255,255,0.5);
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: color 0.2s;
+      line-height: 1;
     }
 
-    .lightbox .close-btn:hover {
-      transform: rotate(90deg);
-      color: #ccc;
-    }
+    .lb-close:hover { color: #fff; }
 
-    .lightbox .nav-arrow {
+    .lb-nav {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      color: rgba(255,255,255,0.6);
-      font-size: 3rem;
-      cursor: pointer;
-      padding: 1rem;
-      transition: 0.3s;
       background: none;
       border: none;
-      z-index: 1001;
-    }
-
-    .lightbox .nav-arrow:hover {
-      color: #fff;
-    }
-
-    .lightbox .prev-arrow {
-      left: 20px;
-    }
-
-    .lightbox .next-arrow {
-      right: 20px;
-    }
-
-    /* contact */
-    .contact-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3rem;
-      margin-top: 1rem;
-    }
-    .contact-info {
-      flex: 1 1 250px;
-    }
-    .contact-info i {
-      width: 30px;
-      margin-right: 10px;
-    }
-    .contact-info p {
-      margin: 1.2rem 0;
-      font-size: 1.1rem;
-    }
-    .contact-info .social a {
-      font-size: 1.8rem;
-      margin-right: 20px;
-      transition: 0.3s;
-    }
-    .contact-info .social a:hover {
-      transform: scale(1.1);
-      opacity: 0.6;
-    }
-    .contact-form {
-      flex: 2 1 300px;
-    }
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 0.9rem 1.2rem;
-      margin-bottom: 1rem;
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(0,0,0,0.15);
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-    .contact-form input:focus, .contact-form textarea:focus {
-      outline: none;
-      border-color: #000;
-      background: rgba(255,255,255,0.85);
-    }
-    .contact-form button {
-      background: #000;
-      border: none;
-      color: #fff !important;
-      padding: 0.9rem 2.5rem;
-      letter-spacing: 2px;
+      color: rgba(255,255,255,0.4);
+      font-size: 1.5rem;
       cursor: pointer;
-      transition: 0.3s;
-      border-radius: 2px;
-      font-size: 1rem;
-    }
-    .contact-form button:hover {
-      background: #333;
-      transform: scale(1.02);
-    }
-    .contact-form button i {
-      color: #fff !important;
+      padding: 1rem;
+      transition: color 0.2s;
     }
 
-    .footer {
-      text-align: center;
-      padding: 2rem 5% 1.5rem;
+    .lb-nav:hover { color: #fff; }
+    .lb-prev { left: 1rem; }
+    .lb-next { right: 1rem; }
+
+    /* ── CONTACT PAGE ── */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 68px - 200px);
+    }
+
+    .contact-left {
+      padding: 5rem 6%;
+      border-right: 1px solid var(--rule);
+      background: var(--smoke);
+      color: var(--cream);
+    }
+
+    .contact-left .eyebrow { color: var(--ember); }
+
+    .contact-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.3;
+      margin-bottom: 3rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-detail i {
+      color: var(--ember);
       font-size: 0.9rem;
-      letter-spacing: 1px;
-      border-top: 1px solid rgba(0,0,0,0.1);
-      background: rgba(255,255,255,0.4);
-      backdrop-filter: blur(4px);
+      margin-top: 3px;
+      width: 16px;
+      flex-shrink: 0;
     }
 
-    /* responsive */
+    .contact-detail-text {
+      font-size: 0.9rem;
+      color: rgba(242,237,230,0.7);
+      line-height: 1.6;
+    }
+
+    .contact-detail-text strong {
+      display: block;
+      color: var(--cream);
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+      font-weight: 600;
+    }
+
+    .socials {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .social-link:hover {
+      border-color: var(--ember);
+      color: var(--ember);
+    }
+
+    .contact-right {
+      padding: 5rem 6%;
+      background: var(--cream);
+    }
+
+    .contact-right .eyebrow { margin-bottom: 2rem; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-group label {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ash);
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--bone);
+      border: 1px solid var(--rule);
+      border-radius: 0;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s;
+      outline: none;
+      width: 100%;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--ink);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      margin-top: 1.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: rgba(242,237,230,0.4);
+      padding: 2rem 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer p {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+    }
+
+    footer .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      color: rgba(242,237,230,0.3);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* ── MOBILE ── */
     @media (max-width: 820px) {
+      nav { padding: 0 4%; }
+
       .nav-links {
         position: fixed;
-        top: 70px;
+        top: 68px;
         left: 0;
         width: 100%;
-        background: rgba(255,255,255,0.96);
+        background: var(--cream);
         flex-direction: column;
-        align-items: center;
-        gap: 1.8rem;
-        padding: 2rem 0;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
+        gap: 0;
+        border-bottom: 1px solid var(--rule);
         display: none;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.04);
       }
-      .nav-links.open {
-        display: flex;
-      }
-      .hamburger {
-        display: flex;
-      }
-      .brand-text {
-        font-size: 1.3rem;
-        letter-spacing: 3px;
-        padding-left: 8px;
-      }
-      .hero-content h2 {
-        font-size: 2.6rem;
-      }
-      .hero-image-wrapper {
-        min-height: 250px;
-      }
-      .service-card .service-image {
-        height: 150px;
-      }
-      .menu-image-card img {
-        height: 280px;
-      }
-      .lightbox .nav-arrow {
-        font-size: 2rem;
-        padding: 0.5rem;
-      }
-      .lightbox .close-btn {
-        font-size: 2rem;
-        top: 15px;
-        right: 20px;
-      }
-      .image-indicators {
-        bottom: 10px;
-        padding: 5px 12px;
-        gap: 8px;
-      }
-      .image-indicators .dot {
-        width: 10px;
-        height: 10px;
-      }
-    }
 
-    /* small tweaks */
-    .logo-container .fa-utensils {
-      display: none;
-    }
+      .nav-links.open { display: flex; }
 
-    /* ensure all text is black and bold */
-    .stat-item h3, .stat-item p, .service-card .service-content h3, .service-card .service-content p, .contact-info p, .footer p, .hero-content h2, .hero-content p, .section-title, .brand-text, .brand-text span, .nav-links a, .btn, .menu-category h3, .contact-form input, .contact-form textarea, .contact-form button, .contact-info .social a, .contact-info i, .service-card .service-content i, .section-title i {
-      color: #000000 !important;
-    }
-    .btn:hover {
-      color: #ffffff !important;
-    }
-    .btn:hover i {
-      color: #ffffff !important;
-    }
-    .contact-form button {
-      color: #ffffff !important;
-    }
-    .contact-form button i {
-      color: #ffffff !important;
-    }
-    .lightbox .close-btn {
-      color: #ffffff !important;
-    }
-    .lightbox .nav-arrow {
-      color: rgba(255,255,255,0.6) !important;
-    }
-    .lightbox .nav-arrow:hover {
-      color: #ffffff !important;
+      .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 4%;
+        font-size: 0.8rem;
+      }
+
+      .nav-reserve { display: none; }
+      .hamburger { display: flex; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-right {
+        height: 55vw;
+        min-height: 260px;
+        border-right: none;
+      }
+
+      .hero-left {
+        padding: 3rem 4%;
+        border-right: none;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .hero-stats { gap: 2rem; margin-top: 2.5rem; }
+
+      .theater-panel {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        height: auto;
+      }
+
+      .theater-panel .panel-img { height: 260px; }
+      .theater-panel.flip { direction: ltr; }
+
+      .menu-grid { grid-template-columns: 1fr; }
+      .menu-card:nth-child(2n) { border-right: 1px solid var(--rule); }
+      .menu-card { aspect-ratio: 4/3; }
+      .menu-card img { object-fit: cover; }
+
+      .contact-wrap { grid-template-columns: 1fr; }
+      .contact-left { border-right: none; border-bottom: 1px solid var(--rule); }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .page-header { padding: 3rem 4%; }
+      .panel-body { padding: 2.5rem 4%; }
+      .contact-left, .contact-right { padding: 3rem 4%; }
+
+      footer { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
 
+<!-- ── NAV ── -->
 <nav>
-  <div class="logo-container">
-    <div class="logo-img" style="display: flex; align-items: center;">
-      <div style="background: rgba(255,255,255,0.7); backdrop-filter: blur(4px); padding: 6px 18px 6px 14px; border-radius: 40px; border: 1px solid #000; display: flex; align-items: center; gap: 6px;">
-        <i class="fas fa-fire" style="color: #000000; font-size: 1.8rem;"></i>
-        <span style="font-weight: 700; letter-spacing: 3px; color: #000000; font-size: 1.2rem;">THE <span style="font-weight: 700; color: #000000;">BEAM</span></span>
-      </div>
+  <a href="#" class="logo" data-page="home">
+    <div class="logo-flame">
+      <svg viewBox="0 0 22 28" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 0C11 0 18 6 18 13C18 17 15.5 19.5 13 20.5C14 18 13 15.5 11 14C11 14 8 17 8 20.5C5.5 19.5 4 17 4 13C4 6 11 0 11 0ZM7 22C7 25.3 8.7 27 11 27C13.3 27 15 25.3 15 22C15 20.5 14.5 19.5 13 20.5C13 20.5 12.5 22 11 22C9.5 22 9 20.5 9 20.5C7.5 19.5 7 20.5 7 22Z"/>
+      </svg>
     </div>
-    <div class="brand-text"><span>GRILL</span> & LOUNGE</div>
-  </div>
+    <div>
+      <div class="logo-wordmark">The Beam</div>
+      <span class="logo-sub">Grill & Lounge</span>
+    </div>
+  </a>
+
   <ul class="nav-links" id="navLinks">
-    <li><a href="#" data-page="home" class="active"><i class="fas fa-home"></i> Home</a></li>
-    <li><a href="#" data-page="services"><i class="fas fa-concierge-bell"></i> Services</a></li>
-    <li><a href="#" data-page="menu"><i class="fas fa-utensils"></i> Menu</a></li>
-    <li><a href="#" data-page="contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+    <li><a href="#" data-page="home" class="active">Home</a></li>
+    <li><a href="#" data-page="services">Services</a></li>
+    <li><a href="#" data-page="menu">Menu</a></li>
+    <li><a href="#" data-page="contact">Contact</a></li>
   </ul>
-  <div class="hamburger" id="hamburger">
+
+  <a href="#" class="nav-reserve" data-page="contact">Reserve a table</a>
+
+  <div class="hamburger" id="hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
-<!-- HOME -->
-<section id="home" class="active">
+<!-- ── HOME ── -->
+<div class="page active" id="page-home">
   <div class="hero">
-    <div class="hero-image-wrapper" id="heroImageContainer">
-      <img src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/474687252_513702221756003_8669152100068161233_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1350&ctp=s1080x1350&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFkYQ3zr5aQO3kbqi9LLY4-EMTW5Hr208cQxNbkevbTx1p6JRCl6UEylUviaotcnCqVLu1FZe8UtOrAjjh92tNq&_nc_ohc=hc7Qd1ig1qEQ7kNvwG_Ad0K&_nc_oc=AdqthacD9HSJLtt8gDI5ZR8d2wmS8U8XbMduy9aq5lodQQjJuTx4wD3YyEScrDdVqT0&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=RZX0aiYN3XidRJD1o1Cifg&_nc_ss=7b2a8&oh=00_Af8RkALMry_767Jn4HQO1d_P-wFjyfzmB6LKkZYXGnfg6Q&oe=6A46FBE0" alt="The Beam Grill & Lounge 1" class="active" data-index="0">
-      <img src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/472293101_499532606506298_8956957758215834881_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=s1080x1080&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEEpVt-ZsZOn3eeVLeT9Wp5Ox3oGJGSWxY7HegYkZJbFlaS1oD0ism5OkirfrpZjnv7aE_n4B7dUge1qJod7xGw&_nc_ohc=52FMVcwCQDsQ7kNvwHDYtZS&_nc_oc=AdqoSteMd8X1HxoVhrWutPVZhe2PNKVJHgF_pr0g249h_dgRY1Kl5ZuU96Sh7FoMHIw&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=ud0F09zkRA26Ayw7YuGTrw&_nc_ss=7b2a8&oh=00_Af-o6QP0VlTT16iDsyVCo70-Kw1aGGEmvCjE3xP2UYLGfQ&oe=6A48003C" alt="The Beam Grill & Lounge 2" data-index="1">
-      <div class="image-indicators">
-        <span class="dot active" data-index="0"></span>
-        <span class="dot" data-index="1"></span>
+    <div class="hero-left">
+      <span class="eyebrow">Pipeline Nakuru, Kenya</span>
+      <h1 class="hero-headline">
+        Where<br>
+        <em>flame</em><br>
+        meets rhythm
+      </h1>
+      <p class="hero-body">
+        Deliciously crafted food, hand-poured drinks, and DJ sets that carry you through the night. Come for the grill, stay for everything else.
+      </p>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary" data-page="menu">View menu</a>
+        <a href="#" class="btn-ghost" data-page="services">
+          Our services <span class="arrow">→</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="stat-num">12+</span>
+          <span class="stat-label">Cocktails</span>
+        </div>
+        <div>
+          <span class="stat-num">4.9</span>
+          <span class="stat-label">Rating</span>
+        </div>
+        <div>
+          <span class="stat-num">∞</span>
+          <span class="stat-label">Good vibes</span>
+        </div>
       </div>
     </div>
-    <div class="hero-content">
-      <h2>Where <span>flame</span> meets <span>rhythm</span></h2>
-      <p>Welcome to The Beam Grill & Lounge where we offer Deliciously Crafted Food, Drinks and Games in a Serene Ambience.</p>
-      <a href="#" class="btn" data-page="menu">Explore Menu <i class="fas fa-arrow-right"></i></a>
-    </div>
-    <div class="stats">
-      <div class="stat-item"><h3>12+</h3><p>Signature cocktails</p></div>
-      <div class="stat-item"><h3>∞</h3><p>Good vibes</p></div>
-      <div class="stat-item"><h3>4.9★</h3><p>Guest rating</p></div>
-    </div>
-  </div>
-</section>
 
-<!-- ===== SERVICES SECTION WITH IMAGES ===== -->
-<section id="services">
-  <h2 class="section-title"></i> Our Services</h2>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-image">
-        <img src="https://i.postimg.cc/crC4BhFp/meal.jpg" alt="Deliciously Crafted Meals">
+    <div class="hero-right">
+      <div class="hero-slideshow" id="heroSlideshow">
+        <img
+          src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/474687252_513702221756003_8669152100068161233_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1350&ctp=s1080x1350&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFkYQ3zr5aQO3kbqi9LLY4-EMTW5Hr208cQxNbkevbTx1p6JRCl6UEylUviaotcnCqVLu1FZe8UtOrAjjh92tNq&_nc_ohc=hc7Qd1ig1qEQ7kNvwG_Ad0K&_nc_oc=AdqthacD9HSJLtt8gDI5ZR8d2wmS8U8XbMduy9aq5lodQQjJuTx4wD3YyEScrDdVqT0&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=RZX0aiYN3XidRJD1o1Cifg&_nc_ss=7b2a8&oh=00_Af8RkALMry_767Jn4HQO1d_P-wFjyfzmB6LKkZYXGnfg6Q&oe=6A46FBE0"
+          alt="The Beam Grill atmosphere" class="active">
+        <img
+          src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/472293101_499532606506298_8956957758215834881_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=s1080x1080&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEEpVt-ZsZOn3eeVLeT9Wp5Ox3oGJGSWxY7HegYkZJbFlaS1oD0ism5OkirfrpZjnv7aE_n4B7dUge1qJod7xGw&_nc_ohc=52FMVcwCQDsQ7kNvwHDYtZS&_nc_oc=AdqoSteMd8X1HxoVhrWutPVZhe2PNKVJHgF_pr0g249h_dgRY1Kl5ZuU96Sh7FoMHIw&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=ud0F09zkRA26Ayw7YuGTrw&_nc_ss=7b2a8&oh=00_Af-o6QP0VlTT16iDsyVCo70-Kw1aGGEmvCjE3xP2UYLGfQ&oe=6A48003C"
+          alt="The Beam Grill interior">
       </div>
-      <div class="service-content">
-        <i class="fas fa-utensil-spoon"></i>
-        <h3>Deliciously Crafted Meals</h3>
-        <p>Chef-driven cuisine with local dishes from Pork, Beef, ugali, Pilau. Every plate is a masterpiece.</p>
-      </div>
-    </div>
-    <div class="service-card">
-      <div class="service-image">
-        <img src="https://i.postimg.cc/4nBxcqQM/drink.jpg" alt="Drink & Mixology">
-      </div>
-      <div class="service-content">
-        <i class="fas fa-wine-glass-alt"></i>
-        <h3>Drink & Mixology</h3>
-        <p>From aged whiskeys to vibrant mocktails – our bar tells stories.</p>
-      </div>
-    </div>
-    <div class="service-card">
-      <div class="service-image">
-        <img src="https://i.postimg.cc/HjBkMRtd/music.jpg" alt="Live Music">
-      </div>
-      <div class="service-content">
-        <i class="fas fa-music"></i>
-        <h3>Live Music</h3>
-        <p>We give you DJ sets that turn your evening into an experience.</p>
-      </div>
-    </div>
-    <div class="service-card">
-      <div class="service-image">
-        <img src="https://i.postimg.cc/tYJCNkBL/screen.jpg" alt="Live Games">
-      </div>
-      <div class="service-content">
-        <i class="fas fa-gamepad"></i>
-        <h3>Live Games</h3>
-        <p>Big screens for live matches. Come cheer, and celebrate.</p>
+      <div class="slide-dots" id="slideDots">
+        <button class="slide-dot active" data-index="0" aria-label="Slide 1"></button>
+        <button class="slide-dot" data-index="1" aria-label="Slide 2"></button>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ===== MENU SECTION WITH CLICKABLE IMAGES ===== -->
-<section id="menu">
-  <h2 class="section-title"></i> Our Menu</h2>
-  <div class="menu-grid" id="menuGrid">
-    <div class="menu-image-card" data-index="0">
+<!-- ── SERVICES ── -->
+<div class="page" id="page-services">
+  <div class="page-header">
+    <span class="eyebrow">What we offer</span>
+    <h2 class="page-title">An experience,<br>not just a meal</h2>
+  </div>
+
+  <div class="theater-panels">
+
+    <div class="theater-panel">
+      <div class="panel-img">
+        <img src="https://i.postimg.cc/crC4BhFp/meal.jpg" alt="Crafted meals at The Beam">
+      </div>
+      <div class="panel-body">
+        <span class="panel-num">01</span>
+        <h3 class="panel-title">Deliciously crafted meals</h3>
+        <p class="panel-desc">Chef-driven cuisine rooted in local tradition. Pork, beef, ugali, pilau — every plate is made with intention and served with pride.</p>
+        <span class="panel-tag">Kitchen open daily</span>
+      </div>
+    </div>
+
+    <div class="theater-panel flip">
+      <div class="panel-img">
+        <img src="https://i.postimg.cc/4nBxcqQM/drink.jpg" alt="Drinks and cocktails">
+      </div>
+      <div class="panel-body">
+        <span class="panel-num">02</span>
+        <h3 class="panel-title">Drinks & mixology</h3>
+        <p class="panel-desc">From aged whiskeys to vibrant mocktails, our bar tells stories one glass at a time. Twelve signatures, crafted with care.</p>
+        <span class="panel-tag">Full bar · Mocktails available</span>
+      </div>
+    </div>
+
+    <div class="theater-panel">
+      <div class="panel-img">
+        <img src="https://i.postimg.cc/HjBkMRtd/music.jpg" alt="DJ sets and live music">
+      </div>
+      <div class="panel-body">
+        <span class="panel-num">03</span>
+        <h3 class="panel-title">Live music & DJ sets</h3>
+        <p class="panel-desc">DJ sets curated to carry you from sunset into the night. The right track at the right moment and that's the Beam difference.</p>
+        <span class="panel-tag">Friday & Saturday nights</span>
+      </div>
+    </div>
+
+    <div class="theater-panel flip">
+      <div class="panel-img">
+        <img src="https://i.postimg.cc/tYJCNkBL/screen.jpg" alt="Live sports on big screens">
+      </div>
+      <div class="panel-body">
+        <span class="panel-num">04</span>
+        <h3 class="panel-title">Live games on the big screen</h3>
+        <p class="panel-desc">EPL, Champions League, AFCON, WorldCupand more. Come cheer, react, celebrate. Big screens, cold drinks, and the right company.</p>
+        <span class="panel-tag">All major fixtures live</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── MENU ── -->
+<div class="page" id="page-menu">
+  <div class="menu-intro">
+    <span class="eyebrow">The Beam Grill & Lounge</span>
+    <h2 class="page-title">Our menu</h2>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-card" data-index="0">
       <img src="https://i.postimg.cc/R0bT7jnF/menu1.jpg" alt="Menu page 1">
-      <span class="click-hint"><i class="fas fa-search-plus"></i> Click to enlarge</span>
-    </div>
-    <div class="menu-image-card" data-index="1">
-      <img src="https://i.postimg.cc/yNrTmwS6/menu2.jpg" alt="Menu page 2">
-      <span class="click-hint"><i class="fas fa-search-plus"></i> Click to enlarge</span>
-    </div>
-    <div class="menu-image-card" data-index="2">
-      <img src="https://i.postimg.cc/PqFMWB8t/menu3.jpg" alt="Menu page 3">
-      <span class="click-hint"><i class="fas fa-search-plus"></i> Click to enlarge</span>
-    </div>
-    <div class="menu-image-card" data-index="3">
-      <img src="https://i.postimg.cc/jjjXJsCw/menu4.jpg" alt="Menu page 4">
-      <span class="click-hint"><i class="fas fa-search-plus"></i> Click to enlarge</span>
-    </div>
-  </div>
-</section>
-
-<!-- ===== LIGHTBOX ===== -->
-<div class="lightbox" id="lightbox">
-  <button class="close-btn" id="closeLightbox">&times;</button>
-  <button class="nav-arrow prev-arrow" id="prevImage"><i class="fas fa-chevron-left"></i></button>
-  <button class="nav-arrow next-arrow" id="nextImage"><i class="fas fa-chevron-right"></i></button>
-  <img src="" alt="Menu full view" id="lightboxImage">
-</div>
-
-<!-- CONTACT -->
-<section id="contact">
-  <h2 class="section-title"></i> Connect with us</h2>
-  <div class="contact-wrapper">
-    <div class="contact-info">
-      <p><i class="fas fa-map-marker-alt"></i> Pipeline Mzee Wanyama Road,Nakuru</p>
-      <p><i class="fas fa-phone-alt"></i> +254 700 123 456</p>
-      <p><i class="fas fa-envelope"></i> thebeamloungegrill@gmail.com</p>
-      <div class="social">
-        <a href="https://web.facebook.com/people/The-Beam-Grill-Lounge/100093486885718/?_rdc=1&_rdr" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
+      <div class="menu-card-label">
+        <span class="menu-card-pg">Page 01</span>
+        <span class="menu-card-hint">Click to enlarge</span>
       </div>
-      <p style="margin-top: 1.5rem; font-style: italic;">“Good food, good music, good people.”</p>
     </div>
-    <div class="contact-form">
-      <input type="text" placeholder="Your name">
-      <input type="email" placeholder="Email">
-      <textarea rows="3" placeholder="Reservation or inquiry..."></textarea>
-      <button>Send <i class="fas fa-paper-plane"></i></button>
+    <div class="menu-card" data-index="1">
+      <img src="https://i.postimg.cc/yNrTmwS6/menu2.jpg" alt="Menu page 2">
+      <div class="menu-card-label">
+        <span class="menu-card-pg">Page 02</span>
+        <span class="menu-card-hint">Click to enlarge</span>
+      </div>
+    </div>
+    <div class="menu-card" data-index="2">
+      <img src="https://i.postimg.cc/PqFMWB8t/menu3.jpg" alt="Menu page 3">
+      <div class="menu-card-label">
+        <span class="menu-card-pg">Page 03</span>
+        <span class="menu-card-hint">Click to enlarge</span>
+      </div>
+    </div>
+    <div class="menu-card" data-index="3">
+      <img src="https://i.postimg.cc/jjjXJsCw/menu4.jpg" alt="Menu page 4">
+      <div class="menu-card-label">
+        <span class="menu-card-pg">Page 04</span>
+        <span class="menu-card-hint">Click to enlarge</span>
+      </div>
     </div>
   </div>
-</section>
-
-<div class="footer">
-  <p>© 2026 The Beam Grill & Lounge,where every night is a story.</p>
 </div>
+
+<!-- ── LIGHTBOX ── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Menu image viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+  <img src="" alt="Menu full view" id="lbImage">
+</div>
+
+<!-- ── CONTACT ── -->
+<div class="page" id="page-contact">
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <span class="eyebrow">Get in touch</span>
+      <p class="contact-tagline">"Good food,<br>good music,<br>good people."</p>
+
+      <div class="contact-detail">
+        <i class="fas fa-map-marker-alt"></i>
+        <div class="contact-detail-text">
+          <strong>Location</strong>
+          Pipeline Mzee Wanyama Road, Nakuru
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <i class="fas fa-phone-alt"></i>
+        <div class="contact-detail-text">
+          <strong>Phone</strong>
+          +254 700 123 456
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <i class="fas fa-envelope"></i>
+        <div class="contact-detail-text">
+          <strong>Email</strong>
+          thebeamloungegrill@gmail.com
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <i class="fas fa-clock"></i>
+        <div class="contact-detail-text">
+          <strong>Hours</strong>
+          Mon–Thu: 11am – 11pm<br>
+          Fri–Sun: 11am – 2am
+        </div>
+      </div>
+
+      <div class="socials">
+        <a href="https://web.facebook.com/people/The-Beam-Grill-Lounge/100093486885718/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link" aria-label="Twitter / X"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <span class="eyebrow">Send a message</span>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First name</label>
+          <input type="text" id="fname" placeholder="James">
+        </div>
+        <div class="form-group">
+          <label for="lname">Last name</label>
+          <input type="text" id="lname" placeholder="Kariuki">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="james@example.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" placeholder="+254 7xx xxx xxx">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group full">
+          <label for="occasion">Occasion</label>
+          <select id="occasion">
+            <option value="" disabled selected>Select an occasion</option>
+            <option>Table reservation</option>
+            <option>Private event</option>
+            <option>Birthday celebration</option>
+            <option>Corporate event</option>
+            <option>General inquiry</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group full">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell us what you need — preferred date, number of guests, any special requests..."></textarea>
+        </div>
+      </div>
+      <div class="form-submit">
+        <button class="btn-primary" type="button" onclick="this.textContent='Sent ✓'; this.style.background='#1a7a4a'; setTimeout(()=>{this.textContent='Send message'; this.style.background='';},3000)">
+          Send message
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span class="footer-logo">The Beam</span>
+  <p>© 2026 The Beam Grill & Lounge, Nakuru — where every night is a story.</p>
+</footer>
 
 <script>
-  (function() {
-    // === PAGE NAVIGATION ===
-    const sections = {
-      home: document.getElementById('home'),
-      services: document.getElementById('services'),
-      menu: document.getElementById('menu'),
-      contact: document.getElementById('contact')
-    };
+(function () {
 
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const hamburger = document.getElementById('hamburger');
-    const navList = document.getElementById('navLinks');
+  // ── PAGE NAVIGATION ──
+  const pages = {};
+  document.querySelectorAll('.page').forEach(p => {
+    const key = p.id.replace('page-', '');
+    pages[key] = p;
+  });
 
-    function showPage(pageId) {
-      Object.values(sections).forEach(s => s.classList.remove('active'));
-      if (sections[pageId]) sections[pageId].classList.add('active');
+  const navLinks = document.querySelectorAll('[data-page]');
 
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.dataset.page === pageId) {
-          link.classList.add('active');
-        }
-      });
-
-      navList.classList.remove('open');
-    }
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const page = link.dataset.page;
-        if (page) showPage(page);
-      });
+  function showPage(key) {
+    Object.values(pages).forEach(p => p.classList.remove('active'));
+    if (pages[key]) pages[key].classList.add('active');
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.classList.toggle('active', a.dataset.page === key);
     });
+    document.getElementById('navLinks').classList.remove('open');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
-    hamburger.addEventListener('click', () => {
-      navList.classList.toggle('open');
+  navLinks.forEach(el => {
+    el.addEventListener('click', e => {
+      e.preventDefault();
+      const key = el.dataset.page;
+      if (key) showPage(key);
     });
+  });
 
-    document.querySelectorAll('.btn[data-page]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const page = btn.dataset.page;
-        if (page) showPage(page);
-      });
-    });
+  // ── HAMBURGER ──
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
 
-    window.addEventListener('load', () => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash && sections[hash]) {
-        showPage(hash);
-      }
-    });
+  // ── HERO SLIDESHOW ──
+  const slides = document.querySelectorAll('#heroSlideshow img');
+  const dots   = document.querySelectorAll('#slideDots .slide-dot');
+  let current  = 0;
+  let timer;
 
-    window.addEventListener('hashchange', () => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash && sections[hash]) showPage(hash);
-    });
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
 
-    // === HERO IMAGE SLIDESHOW ===
-    const heroImages = document.querySelectorAll('.hero-image-wrapper img');
-    const dots = document.querySelectorAll('.dot');
-    let currentImageIndex = 0;
-    let slideshowInterval;
+  function tick() { goTo(current + 1); }
 
-    function showImage(index) {
-      heroImages.forEach(img => {
-        img.classList.remove('active', 'fade-out');
-      });
-      dots.forEach(dot => {
-        dot.classList.remove('active');
-      });
-      heroImages[index].classList.add('active');
-      dots[index].classList.add('active');
-      currentImageIndex = index;
-    }
+  function startTimer() { timer = setInterval(tick, 5000); }
+  function stopTimer()  { clearInterval(timer); }
 
-    function nextImage() {
-      const nextIndex = (currentImageIndex + 1) % heroImages.length;
-      heroImages[currentImageIndex].classList.add('fade-out');
-      setTimeout(() => {
-        showImage(nextIndex);
-      }, 300);
-    }
+  dots.forEach((d, i) => {
+    d.addEventListener('click', () => { stopTimer(); goTo(i); startTimer(); });
+  });
 
-    function startSlideshow() {
-      if (slideshowInterval) clearInterval(slideshowInterval);
-      slideshowInterval = setInterval(nextImage, 4000);
-    }
+  const heroRight = document.querySelector('.hero-right');
+  if (heroRight) {
+    heroRight.addEventListener('mouseenter', stopTimer);
+    heroRight.addEventListener('mouseleave', startTimer);
+  }
 
-    function stopSlideshow() {
-      if (slideshowInterval) {
-        clearInterval(slideshowInterval);
-        slideshowInterval = null;
-      }
-    }
+  startTimer();
 
-    dots.forEach(dot => {
-      dot.addEventListener('click', function() {
-        stopSlideshow();
-        const index = parseInt(this.dataset.index);
-        showImage(index);
-        startSlideshow();
-      });
-    });
+  // ── LIGHTBOX ──
+  const menuImages = [
+    'https://i.postimg.cc/R0bT7jnF/menu1.jpg',
+    'https://i.postimg.cc/yNrTmwS6/menu2.jpg',
+    'https://i.postimg.cc/PqFMWB8t/menu3.jpg',
+    'https://i.postimg.cc/jjjXJsCw/menu4.jpg'
+  ];
 
-    const heroContainer = document.querySelector('.hero-image-wrapper');
-    heroContainer.addEventListener('mouseenter', stopSlideshow);
-    heroContainer.addEventListener('mouseleave', startSlideshow);
+  const lightbox = document.getElementById('lightbox');
+  const lbImage  = document.getElementById('lbImage');
+  let lbIndex    = 0;
 
-    startSlideshow();
+  function openLb(idx) {
+    lbIndex = ((idx % menuImages.length) + menuImages.length) % menuImages.length;
+    lbImage.src = menuImages[lbIndex];
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 
-    // === LIGHTBOX FUNCTIONALITY ===
-    const menuImages = [
-      'https://i.postimg.cc/R0bT7jnF/menu1.jpg',
-      'https://i.postimg.cc/yNrTmwS6/menu2.jpg',
-      'https://i.postimg.cc/PqFMWB8t/menu3.jpg',
-      'https://i.postimg.cc/jjjXJsCw/menu4.jpg'
-    ];
+  function closeLb() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const closeBtn = document.getElementById('closeLightbox');
-    const prevBtn = document.getElementById('prevImage');
-    const nextBtn = document.getElementById('nextImage');
-    let currentMenuIndex = 0;
+  document.querySelectorAll('.menu-card').forEach((card, i) => {
+    card.addEventListener('click', () => openLb(parseInt(card.dataset.index)));
+  });
 
-    document.querySelectorAll('.menu-image-card').forEach((card, index) => {
-      card.addEventListener('click', function(e) {
-        currentMenuIndex = parseInt(this.dataset.index);
-        openLightbox(currentMenuIndex);
-      });
-    });
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); openLb(lbIndex - 1); });
+  document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); openLb(lbIndex + 1); });
 
-    function openLightbox(index) {
-      if (index < 0) index = menuImages.length - 1;
-      if (index >= menuImages.length) index = 0;
-      currentMenuIndex = index;
-      lightboxImage.src = menuImages[currentMenuIndex];
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      stopSlideshow();
-    }
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
 
-    function closeLightboxFn() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = 'auto';
-      startSlideshow();
-    }
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape')      closeLb();
+    if (e.key === 'ArrowLeft')   openLb(lbIndex - 1);
+    if (e.key === 'ArrowRight')  openLb(lbIndex + 1);
+  });
 
-    function showPrevMenu() {
-      currentMenuIndex = (currentMenuIndex - 1 + menuImages.length) % menuImages.length;
-      lightboxImage.src = menuImages[currentMenuIndex];
-    }
-
-    function showNextMenu() {
-      currentMenuIndex = (currentMenuIndex + 1) % menuImages.length;
-      lightboxImage.src = menuImages[currentMenuIndex];
-    }
-
-    closeBtn.addEventListener('click', closeLightboxFn);
-    prevBtn.addEventListener('click', showPrevMenu);
-    nextBtn.addEventListener('click', showNextMenu);
-
-    lightbox.addEventListener('click', function(e) {
-      if (e.target === this) closeLightboxFn();
-    });
-
-    document.addEventListener('keydown', function(e) {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightboxFn();
-      if (e.key === 'ArrowLeft') showPrevMenu();
-      if (e.key === 'ArrowRight') showNextMenu();
-    });
-
-  })();
+})();
 </script>
-
 </body>
 </html>
