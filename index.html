@@ -718,7 +718,7 @@
       text-transform: uppercase;
     }
 
-    /* ── MOBILE ── */
+    /* ── MOBILE FIRST IMPROVEMENTS ── */
     @media (max-width: 820px) {
       nav { padding: 0 4%; }
 
@@ -750,49 +750,255 @@
       .nav-reserve { display: none; }
       .hamburger { display: flex; }
 
+      /* HERO: Image on top, text below */
       .hero {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         min-height: auto;
       }
 
       .hero-right {
-        height: 55vw;
-        min-height: 260px;
-        border-right: none;
-      }
-
-      .hero-left {
-        padding: 3rem 4%;
+        height: 60vh;
+        min-height: 320px;
+        width: 100%;
+        order: -1; /* Puts the image container first */
         border-right: none;
         border-bottom: 1px solid var(--rule);
       }
 
-      .hero-stats { gap: 2rem; margin-top: 2.5rem; }
+      .hero-left {
+        padding: 2.5rem 5% 3rem;
+        border-right: none;
+        border-bottom: none;
+      }
 
+      .hero-headline {
+        font-size: 2.8rem;
+        text-align: center;
+      }
+
+      .hero-body {
+        max-width: 100%;
+        text-align: center;
+        font-size: 0.95rem;
+        padding: 0 1rem;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-stats {
+        justify-content: center;
+        gap: 2.5rem;
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+      }
+
+      .stat-num {
+        font-size: 1.8rem;
+      }
+
+      .stat-label {
+        font-size: 0.6rem;
+      }
+
+      .slide-dots {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        flex-direction: row;
+        gap: 12px;
+      }
+
+      .slide-dot {
+        width: 30px;
+        height: 2px;
+        background: rgba(255,255,255,0.25);
+      }
+
+      .slide-dot.active {
+        background: var(--ember);
+        height: 2px;
+        width: 45px;
+      }
+
+      /* Services - better mobile layout */
       .theater-panel {
         grid-template-columns: 1fr;
         min-height: auto;
         height: auto;
       }
 
-      .theater-panel .panel-img { height: 260px; }
-      .theater-panel.flip { direction: ltr; }
+      .theater-panel .panel-img {
+        height: 220px;
+        order: -1;
+      }
 
-      .menu-grid { grid-template-columns: 1fr; }
-      .menu-card:nth-child(2n) { border-right: 1px solid var(--rule); }
-      .menu-card { aspect-ratio: 4/3; }
-      .menu-card img { object-fit: cover; }
+      .theater-panel.flip {
+        direction: ltr;
+      }
 
-      .contact-wrap { grid-template-columns: 1fr; }
-      .contact-left { border-right: none; border-bottom: 1px solid var(--rule); }
+      .theater-panel.flip .panel-img {
+        order: -1;
+      }
 
-      .form-row { grid-template-columns: 1fr; }
+      .panel-body {
+        padding: 2rem 6% 2.5rem;
+        text-align: center;
+      }
 
-      .page-header { padding: 3rem 4%; }
-      .panel-body { padding: 2.5rem 4%; }
-      .contact-left, .contact-right { padding: 3rem 4%; }
+      .panel-desc {
+        max-width: 100%;
+        margin: 0 auto;
+      }
 
-      footer { flex-direction: column; text-align: center; }
+      .panel-num {
+        font-size: 2.8rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .panel-title {
+        font-size: 1.5rem;
+      }
+
+      .panel-tag {
+        margin-top: 1.5rem;
+      }
+
+      /* Menu - better mobile */
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-card:nth-child(2n) {
+        border-right: 1px solid var(--rule);
+      }
+
+      .menu-card {
+        aspect-ratio: 4/3;
+      }
+
+      .menu-card img {
+        object-fit: cover;
+        padding: 0.3rem;
+      }
+
+      .menu-card-label {
+        padding: 1rem 1.2rem 0.8rem;
+      }
+
+      /* Contact - better mobile */
+      .contact-wrap {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .contact-left {
+        border-right: none;
+        border-bottom: 1px solid var(--rule);
+        padding: 3rem 5%;
+      }
+
+      .contact-right {
+        padding: 3rem 5%;
+      }
+
+      .contact-tagline {
+        font-size: 1.8rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+
+      .page-header {
+        padding: 3rem 5% 2rem;
+      }
+
+      .page-title {
+        font-size: clamp(2rem, 6vw, 2.8rem);
+      }
+
+      .menu-intro {
+        padding: 3rem 5% 2rem;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 5%;
+      }
+
+      footer p {
+        font-size: 0.7rem;
+      }
+    }
+
+    /* Small phones */
+    @media (max-width: 480px) {
+      .hero-right {
+        height: 50vh;
+        min-height: 240px;
+      }
+
+      .hero-headline {
+        font-size: 2.2rem;
+      }
+
+      .hero-body {
+        font-size: 0.85rem;
+        padding: 0 0.5rem;
+      }
+
+      .btn-primary {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.65rem;
+      }
+
+      .btn-ghost {
+        font-size: 0.65rem;
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+
+      .stat-num {
+        font-size: 1.5rem;
+      }
+
+      .panel-body {
+        padding: 1.5rem 5% 2rem;
+      }
+
+      .panel-title {
+        font-size: 1.3rem;
+      }
+
+      .panel-desc {
+        font-size: 0.85rem;
+      }
+
+      .panel-num {
+        font-size: 2.2rem;
+      }
+
+      .theater-panel .panel-img {
+        height: 180px;
+      }
+
+      .menu-card {
+        aspect-ratio: 4/3;
+      }
+
+      .contact-tagline {
+        font-size: 1.5rem;
+      }
+
+      .contact-detail-text {
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
@@ -829,6 +1035,23 @@
 <!-- ── HOME ── -->
 <div class="page active" id="page-home">
   <div class="hero">
+    <!-- Hero Image - shown first on mobile via order: -1 -->
+    <div class="hero-right">
+      <div class="hero-slideshow" id="heroSlideshow">
+        <img
+          src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/474687252_513702221756003_8669152100068161233_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1350&ctp=s1080x1350&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFkYQ3zr5aQO3kbqi9LLY4-EMTW5Hr208cQxNbkevbTx1p6JRCl6UEylUviaotcnCqVLu1FZe8UtOrAjjh92tNq&_nc_ohc=hc7Qd1ig1qEQ7kNvwG_Ad0K&_nc_oc=AdqthacD9HSJLtt8gDI5ZR8d2wmS8U8XbMduy9aq5lodQQjJuTx4wD3YyEScrDdVqT0&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=RZX0aiYN3XidRJD1o1Cifg&_nc_ss=7b2a8&oh=00_Af8RkALMry_767Jn4HQO1d_P-wFjyfzmB6LKkZYXGnfg6Q&oe=6A46FBE0"
+          alt="The Beam Grill atmosphere" class="active">
+        <img
+          src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/472293101_499532606506298_8956957758215834881_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=s1080x1080&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEEpVt-ZsZOn3eeVLeT9Wp5Ox3oGJGSWxY7HegYkZJbFlaS1oD0ism5OkirfrpZjnv7aE_n4B7dUge1qJod7xGw&_nc_ohc=52FMVcwCQDsQ7kNvwHDYtZS&_nc_oc=AdqoSteMd8X1HxoVhrWutPVZhe2PNKVJHgF_pr0g249h_dgRY1Kl5ZuU96Sh7FoMHIw&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=ud0F09zkRA26Ayw7YuGTrw&_nc_ss=7b2a8&oh=00_Af-o6QP0VlTT16iDsyVCo70-Kw1aGGEmvCjE3xP2UYLGfQ&oe=6A48003C"
+          alt="The Beam Grill interior">
+      </div>
+      <div class="slide-dots" id="slideDots">
+        <button class="slide-dot active" data-index="0" aria-label="Slide 1"></button>
+        <button class="slide-dot" data-index="1" aria-label="Slide 2"></button>
+      </div>
+    </div>
+
+    <!-- Hero Text -->
     <div class="hero-left">
       <span class="eyebrow">Pipeline Nakuru, Kenya</span>
       <h1 class="hero-headline">
@@ -860,21 +1083,6 @@
         </div>
       </div>
     </div>
-
-    <div class="hero-right">
-      <div class="hero-slideshow" id="heroSlideshow">
-        <img
-          src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/474687252_513702221756003_8669152100068161233_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1350&ctp=s1080x1350&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFkYQ3zr5aQO3kbqi9LLY4-EMTW5Hr208cQxNbkevbTx1p6JRCl6UEylUviaotcnCqVLu1FZe8UtOrAjjh92tNq&_nc_ohc=hc7Qd1ig1qEQ7kNvwG_Ad0K&_nc_oc=AdqthacD9HSJLtt8gDI5ZR8d2wmS8U8XbMduy9aq5lodQQjJuTx4wD3YyEScrDdVqT0&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=RZX0aiYN3XidRJD1o1Cifg&_nc_ss=7b2a8&oh=00_Af8RkALMry_767Jn4HQO1d_P-wFjyfzmB6LKkZYXGnfg6Q&oe=6A46FBE0"
-          alt="The Beam Grill atmosphere" class="active">
-        <img
-          src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/472293101_499532606506298_8956957758215834881_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=s1080x1080&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEEpVt-ZsZOn3eeVLeT9Wp5Ox3oGJGSWxY7HegYkZJbFlaS1oD0ism5OkirfrpZjnv7aE_n4B7dUge1qJod7xGw&_nc_ohc=52FMVcwCQDsQ7kNvwHDYtZS&_nc_oc=AdqoSteMd8X1HxoVhrWutPVZhe2PNKVJHgF_pr0g249h_dgRY1Kl5ZuU96Sh7FoMHIw&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=ud0F09zkRA26Ayw7YuGTrw&_nc_ss=7b2a8&oh=00_Af-o6QP0VlTT16iDsyVCo70-Kw1aGGEmvCjE3xP2UYLGfQ&oe=6A48003C"
-          alt="The Beam Grill interior">
-      </div>
-      <div class="slide-dots" id="slideDots">
-        <button class="slide-dot active" data-index="0" aria-label="Slide 1"></button>
-        <button class="slide-dot" data-index="1" aria-label="Slide 2"></button>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -894,7 +1102,7 @@
       <div class="panel-body">
         <span class="panel-num">01</span>
         <h3 class="panel-title">Deliciously crafted meals</h3>
-        <p class="panel-desc">Chef-driven cuisine rooted in local tradition. Pork, beef, ugali, pilau — every plate is made with intention and served with pride.</p>
+        <p class="panel-desc">Chef-driven cuisine rooted in local tradition. Pork, beef, ugali, pilau and much more. Here every plate is made with intention and served with pride.</p>
         <span class="panel-tag">Kitchen open daily</span>
       </div>
     </div>
@@ -930,7 +1138,7 @@
       <div class="panel-body">
         <span class="panel-num">04</span>
         <h3 class="panel-title">Live games on the big screen</h3>
-        <p class="panel-desc">EPL, Champions League, AFCON, WorldCupand more. Come cheer, react, celebrate. Big screens, cold drinks, and the right company.</p>
+        <p class="panel-desc">EPL, Champions League, AFCON, World Cup and more. Come cheer, react, celebrate. Big screens, cold drinks, and the right company.</p>
         <span class="panel-tag">All major fixtures live</span>
       </div>
     </div>
