@@ -174,36 +174,83 @@
       margin-right: 12px;
     }
 
-    /* ===== HOME PAGE - IMAGE TOP, TEXT BELOW ===== */
+    /* ===== HOME PAGE - HOVERING IMAGES ===== */
     .hero {
       display: flex;
       flex-direction: column;
       gap: 2rem;
       align-items: center;
+      width: 100%;
+      position: relative;
     }
 
-    .hero-image {
+    .hero-image-wrapper {
       width: 100%;
       max-width: 800px;
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(4px);
-      border-radius: 20px;
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 12px 30px -8px rgba(0,0,0,0.12);
-      border: 1px solid rgba(0,0,0,0.15);
+      position: relative;
       overflow: hidden;
-      min-height: 300px;
+      border-radius: 16px;
+      min-height: 400px;
     }
-    
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+
+    .hero-image-wrapper img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
       border-radius: 12px;
-      max-height: 500px;
+      transition: opacity 1s ease-in-out, transform 1.2s ease-in-out;
+      opacity: 0;
+    }
+
+    .hero-image-wrapper img.active {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .hero-image-wrapper img.fade-out {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    .image-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 5;
+      background: rgba(0,0,0,0.4);
+      padding: 8px 16px;
+      border-radius: 30px;
+      backdrop-filter: blur(4px);
+    }
+
+    .image-indicators .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .image-indicators .dot.active {
+      background: #ffffff;
+      border-color: #000;
+      transform: scale(1.2);
+    }
+
+    .image-indicators .dot:hover {
+      background: #ffffff;
+      transform: scale(1.1);
     }
 
     .hero-content {
@@ -273,10 +320,10 @@
       letter-spacing: 1px;
     }
 
-    /* services grid */
+    /* ===== SERVICES SECTION WITH IMAGES ===== */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2.5rem;
       margin-top: 2rem;
     }
@@ -284,29 +331,59 @@
     .service-card {
       background: rgba(255, 255, 255, 0.6);
       backdrop-filter: blur(4px);
-      padding: 2rem 1.5rem;
+      padding: 0;
       border-radius: 16px;
       border: 1px solid rgba(0,0,0,0.1);
       transition: 0.3s;
-      text-align: center;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
+
     .service-card:hover {
       transform: translateY(-10px);
       border-color: #000;
       box-shadow: 0 12px 30px rgba(0,0,0,0.12);
       background: rgba(255,255,255,0.8);
     }
-    .service-card i {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
+
+    .service-card .service-image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
     }
-    .service-card h3 {
+
+    .service-card .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover .service-image img {
+      transform: scale(1.05);
+    }
+
+    .service-card .service-content {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .service-card .service-content i {
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .service-card .service-content h3 {
       letter-spacing: 2px;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       margin-bottom: 0.8rem;
     }
-    .service-card p {
+
+    .service-card .service-content p {
       font-weight: 700;
+      font-size: 0.95rem;
     }
 
     /* ===== MENU SECTION WITH CLICKABLE IMAGES ===== */
@@ -538,8 +615,11 @@
       .hero-content h2 {
         font-size: 2.6rem;
       }
-      .hero-image {
-        min-height: 200px;
+      .hero-image-wrapper {
+        min-height: 250px;
+      }
+      .service-card .service-image {
+        height: 150px;
       }
       .menu-image-card img {
         height: 280px;
@@ -553,6 +633,15 @@
         top: 15px;
         right: 20px;
       }
+      .image-indicators {
+        bottom: 10px;
+        padding: 5px 12px;
+        gap: 8px;
+      }
+      .image-indicators .dot {
+        width: 10px;
+        height: 10px;
+      }
     }
 
     /* small tweaks */
@@ -561,7 +650,7 @@
     }
 
     /* ensure all text is black and bold */
-    .stat-item h3, .stat-item p, .service-card h3, .service-card p, .contact-info p, .footer p, .hero-content h2, .hero-content p, .section-title, .brand-text, .brand-text span, .nav-links a, .btn, .menu-category h3, .contact-form input, .contact-form textarea, .contact-form button, .contact-info .social a, .contact-info i, .service-card i, .section-title i {
+    .stat-item h3, .stat-item p, .service-card .service-content h3, .service-card .service-content p, .contact-info p, .footer p, .hero-content h2, .hero-content p, .section-title, .brand-text, .brand-text span, .nav-links a, .btn, .menu-category h3, .contact-form input, .contact-form textarea, .contact-form button, .contact-info .social a, .contact-info i, .service-card .service-content i, .section-title i {
       color: #000000 !important;
     }
     .btn:hover {
@@ -610,11 +699,16 @@
   </div>
 </nav>
 
-<!-- HOME - Image on Top, Text Below -->
+<!-- HOME -->
 <section id="home" class="active">
   <div class="hero">
-    <div class="hero-image">
-      <img src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/474687252_513702221756003_8669152100068161233_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1350&ctp=s1080x1350&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFkYQ3zr5aQO3kbqi9LLY4-EMTW5Hr208cQxNbkevbTx1p6JRCl6UEylUviaotcnCqVLu1FZe8UtOrAjjh92tNq&_nc_ohc=hc7Qd1ig1qEQ7kNvwG_Ad0K&_nc_oc=AdqthacD9HSJLtt8gDI5ZR8d2wmS8U8XbMduy9aq5lodQQjJuTx4wD3YyEScrDdVqT0&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=RZX0aiYN3XidRJD1o1Cifg&_nc_ss=7b2a8&oh=00_Af8RkALMry_767Jn4HQO1d_P-wFjyfzmB6LKkZYXGnfg6Q&oe=6A46FBE0" alt="The Beam Grill & Lounge">
+    <div class="hero-image-wrapper" id="heroImageContainer">
+      <img src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/474687252_513702221756003_8669152100068161233_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1350&ctp=s1080x1350&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFkYQ3zr5aQO3kbqi9LLY4-EMTW5Hr208cQxNbkevbTx1p6JRCl6UEylUviaotcnCqVLu1FZe8UtOrAjjh92tNq&_nc_ohc=hc7Qd1ig1qEQ7kNvwG_Ad0K&_nc_oc=AdqthacD9HSJLtt8gDI5ZR8d2wmS8U8XbMduy9aq5lodQQjJuTx4wD3YyEScrDdVqT0&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=RZX0aiYN3XidRJD1o1Cifg&_nc_ss=7b2a8&oh=00_Af8RkALMry_767Jn4HQO1d_P-wFjyfzmB6LKkZYXGnfg6Q&oe=6A46FBE0" alt="The Beam Grill & Lounge 1" class="active" data-index="0">
+      <img src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/472293101_499532606506298_8956957758215834881_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=s1080x1080&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEEpVt-ZsZOn3eeVLeT9Wp5Ox3oGJGSWxY7HegYkZJbFlaS1oD0ism5OkirfrpZjnv7aE_n4B7dUge1qJod7xGw&_nc_ohc=52FMVcwCQDsQ7kNvwHDYtZS&_nc_oc=AdqoSteMd8X1HxoVhrWutPVZhe2PNKVJHgF_pr0g249h_dgRY1Kl5ZuU96Sh7FoMHIw&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=ud0F09zkRA26Ayw7YuGTrw&_nc_ss=7b2a8&oh=00_Af-o6QP0VlTT16iDsyVCo70-Kw1aGGEmvCjE3xP2UYLGfQ&oe=6A48003C" alt="The Beam Grill & Lounge 2" data-index="1">
+      <div class="image-indicators">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+      </div>
     </div>
     <div class="hero-content">
       <h2>Where <span>flame</span> meets <span>rhythm</span></h2>
@@ -629,14 +723,50 @@
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- ===== SERVICES SECTION WITH IMAGES ===== -->
 <section id="services">
   <h2 class="section-title"></i> Our Services</h2>
   <div class="services-grid">
-    <div class="service-card"><i class="fas fa-utensil-spoon"></i><h3>Deliciously Crafted Meals</h3><p>Chef-driven cuisine with local dishes from Pork, Beef, ugali, Pilau. Every plate is a masterpiece.</p></div>
-    <div class="service-card"><i class="fas fa-wine-glass-alt"></i><h3>Drink & Mixology</h3><p>From aged whiskeys to vibrant mocktails – our bar tells stories.</p></div>
-    <div class="service-card"><i class="fas fa-music"></i><h3>Live Music</h3><p> We give you DJ sets that turn your evening into an experience.</p></div>
-    <div class="service-card"><i class="fas fa-gamepad"></i><h3>Live Games</h3><p>Big screens for live matches. Come cheer, and celebrate.</p></div>
+    <div class="service-card">
+      <div class="service-image">
+        <img src="https://i.postimg.cc/crC4BhFp/meal.jpg" alt="Deliciously Crafted Meals">
+      </div>
+      <div class="service-content">
+        <i class="fas fa-utensil-spoon"></i>
+        <h3>Deliciously Crafted Meals</h3>
+        <p>Chef-driven cuisine with local dishes from Pork, Beef, ugali, Pilau. Every plate is a masterpiece.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-image">
+        <img src="https://i.postimg.cc/4nBxcqQM/drink.jpg" alt="Drink & Mixology">
+      </div>
+      <div class="service-content">
+        <i class="fas fa-wine-glass-alt"></i>
+        <h3>Drink & Mixology</h3>
+        <p>From aged whiskeys to vibrant mocktails – our bar tells stories.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-image">
+        <img src="https://i.postimg.cc/HjBkMRtd/music.jpg" alt="Live Music">
+      </div>
+      <div class="service-content">
+        <i class="fas fa-music"></i>
+        <h3>Live Music</h3>
+        <p>We give you DJ sets that turn your evening into an experience.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-image">
+        <img src="https://i.postimg.cc/tYJCNkBL/screen.jpg" alt="Live Games">
+      </div>
+      <div class="service-content">
+        <i class="fas fa-gamepad"></i>
+        <h3>Live Games</h3>
+        <p>Big screens for live matches. Come cheer, and celebrate.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -673,7 +803,7 @@
 
 <!-- CONTACT -->
 <section id="contact">
-  <h2 class="section-title"><i class="fas fa-map-pin"></i> Connect with us</h2>
+  <h2 class="section-title"></i> Connect with us</h2>
   <div class="contact-wrapper">
     <div class="contact-info">
       <p><i class="fas fa-map-marker-alt"></i> Pipeline Mzee Wanyama Road,Nakuru</p>
@@ -759,6 +889,59 @@
       if (hash && sections[hash]) showPage(hash);
     });
 
+    // === HERO IMAGE SLIDESHOW ===
+    const heroImages = document.querySelectorAll('.hero-image-wrapper img');
+    const dots = document.querySelectorAll('.dot');
+    let currentImageIndex = 0;
+    let slideshowInterval;
+
+    function showImage(index) {
+      heroImages.forEach(img => {
+        img.classList.remove('active', 'fade-out');
+      });
+      dots.forEach(dot => {
+        dot.classList.remove('active');
+      });
+      heroImages[index].classList.add('active');
+      dots[index].classList.add('active');
+      currentImageIndex = index;
+    }
+
+    function nextImage() {
+      const nextIndex = (currentImageIndex + 1) % heroImages.length;
+      heroImages[currentImageIndex].classList.add('fade-out');
+      setTimeout(() => {
+        showImage(nextIndex);
+      }, 300);
+    }
+
+    function startSlideshow() {
+      if (slideshowInterval) clearInterval(slideshowInterval);
+      slideshowInterval = setInterval(nextImage, 4000);
+    }
+
+    function stopSlideshow() {
+      if (slideshowInterval) {
+        clearInterval(slideshowInterval);
+        slideshowInterval = null;
+      }
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', function() {
+        stopSlideshow();
+        const index = parseInt(this.dataset.index);
+        showImage(index);
+        startSlideshow();
+      });
+    });
+
+    const heroContainer = document.querySelector('.hero-image-wrapper');
+    heroContainer.addEventListener('mouseenter', stopSlideshow);
+    heroContainer.addEventListener('mouseleave', startSlideshow);
+
+    startSlideshow();
+
     // === LIGHTBOX FUNCTIONALITY ===
     const menuImages = [
       'https://i.postimg.cc/R0bT7jnF/menu1.jpg',
@@ -772,57 +955,54 @@
     const closeBtn = document.getElementById('closeLightbox');
     const prevBtn = document.getElementById('prevImage');
     const nextBtn = document.getElementById('nextImage');
-    let currentIndex = 0;
+    let currentMenuIndex = 0;
 
-    // Open lightbox on card click
     document.querySelectorAll('.menu-image-card').forEach((card, index) => {
       card.addEventListener('click', function(e) {
-        // Don't open if clicking the hint (optional, but fine)
-        currentIndex = parseInt(this.dataset.index);
-        openLightbox(currentIndex);
+        currentMenuIndex = parseInt(this.dataset.index);
+        openLightbox(currentMenuIndex);
       });
     });
 
     function openLightbox(index) {
       if (index < 0) index = menuImages.length - 1;
       if (index >= menuImages.length) index = 0;
-      currentIndex = index;
-      lightboxImage.src = menuImages[currentIndex];
+      currentMenuIndex = index;
+      lightboxImage.src = menuImages[currentMenuIndex];
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
+      stopSlideshow();
     }
 
-    function closeLightbox() {
+    function closeLightboxFn() {
       lightbox.classList.remove('active');
       document.body.style.overflow = 'auto';
+      startSlideshow();
     }
 
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + menuImages.length) % menuImages.length;
-      lightboxImage.src = menuImages[currentIndex];
+    function showPrevMenu() {
+      currentMenuIndex = (currentMenuIndex - 1 + menuImages.length) % menuImages.length;
+      lightboxImage.src = menuImages[currentMenuIndex];
     }
 
-    function showNext() {
-      currentIndex = (currentIndex + 1) % menuImages.length;
-      lightboxImage.src = menuImages[currentIndex];
+    function showNextMenu() {
+      currentMenuIndex = (currentMenuIndex + 1) % menuImages.length;
+      lightboxImage.src = menuImages[currentMenuIndex];
     }
 
-    // Event listeners
-    closeBtn.addEventListener('click', closeLightbox);
-    prevBtn.addEventListener('click', showPrev);
-    nextBtn.addEventListener('click', showNext);
+    closeBtn.addEventListener('click', closeLightboxFn);
+    prevBtn.addEventListener('click', showPrevMenu);
+    nextBtn.addEventListener('click', showNextMenu);
 
-    // Close on backdrop click
     lightbox.addEventListener('click', function(e) {
-      if (e.target === this) closeLightbox();
+      if (e.target === this) closeLightboxFn();
     });
 
-    // Keyboard navigation
     document.addEventListener('keydown', function(e) {
       if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') showPrev();
-      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'Escape') closeLightboxFn();
+      if (e.key === 'ArrowLeft') showPrevMenu();
+      if (e.key === 'ArrowRight') showNextMenu();
     });
 
   })();
